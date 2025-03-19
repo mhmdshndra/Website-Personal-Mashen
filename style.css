@@ -18,7 +18,7 @@
     --text-color-light: #000000;
     --main-color-light: #005eff;
     --card-bg-light: rgba(182, 182, 182, 0);
-    --header-bg-light: rgba(50, 50, 50, 0.9);
+    --header-bg-light: rgba(255, 255, 255, 0.355);
 
     /* Dark mode */
     --bg-color-dark: linear-gradient(to bottom right, #181A1B, #0F1112);
@@ -26,7 +26,7 @@
     --text-color-dark: #E0E0E0;
     --main-color-dark: #0162bd;
     --card-bg-dark: rgba(50, 54, 57, 0.362);
-    --header-bg-dark: rgba(24, 26, 27, 0.9);
+    --header-bg-dark: rgba(43, 43, 43, 0.9);
 
     /* Default to light theme */
     --bg-color: var(--bg-color-light);
@@ -214,7 +214,7 @@ body {
 
 #menu-icon.active {
     font-size: 2.8rem;
-    left: 290px;
+    left: 270px;
     top: 18px;
 }
 
@@ -245,6 +245,7 @@ section {
     transform: translateX(-40px);
     border-radius: 50%;
     position: relative;
+    margin-top: 20px;
     overflow: hidden;
     box-shadow: 0 0 15px rgba(5, 109, 255, 0.3);
 }
@@ -419,6 +420,7 @@ span {
     overflow: hidden;
     width: 150vw;
     height: 30vw;
+    margin-top: 23px;
 }
 
 .about-img img{
@@ -656,11 +658,14 @@ span {
 
 .progress-bar {
     width: 100%;
+    max-width: 400px; /* Atur batas maksimum agar tetap rapi */
+    min-width: 200px; /* Agar tidak terlalu kecil di layar kecil */
     height: 14px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
     overflow: hidden;
     position: relative;
+    margin: 10px auto; /* Agar sejajar di tengah */
 }
 
 .progress {
@@ -668,6 +673,8 @@ span {
     height: 100%;
     border-radius: 10px;
     position: absolute;
+    left: 0;
+    top: 0;
     background: linear-gradient(90deg, var(--main-color), var(--text-color), var(--main-color));
     background-size: 200% 100%;
     animation: runningGradient 3s linear infinite, progressAnimation 2s ease-in-out forwards;
@@ -686,14 +693,13 @@ span {
 }
 
 .percentage {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: var(--text-color);
+    min-width: 40px; /* Pastikan ada ruang untuk angka */
+    text-align: right;
 }
+
 
 .portfolio {
     background: var(--bg-color);
@@ -855,13 +861,14 @@ span {
     bottom: 0;
     width: 100%;
     padding: 4rem 0;
-    background-color: var(--bg-color-light);
+    background-color: var(--header-bg);
     color: var(--bg-color);
 }
 
 .footer .social{
     text-align: center;
     padding-bottom: 2.5rem;
+    color: var(--bg-color);
 }
 
 .footer .social a{
@@ -1004,7 +1011,7 @@ span {
 }
 
 /* Media Queries */
-@media(max-width: 991px){
+@media(max-width: 991px) {
     #menu-icon {
         display: block;
     }
@@ -1013,15 +1020,18 @@ span {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 80px; /* Menyesuaikan tinggi dropdown */
-        left: 0;
-        width: 100%;
+        top: 80px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 300px;
         background: var(--second-bg-color);
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         padding: 10px 0;
         opacity: 0;
         visibility: hidden;
         transition: opacity 0.3s ease-in-out, visibility 0.3s;
+        border-radius: 10px;
     }
 
     .nav-menu.active {
@@ -1034,102 +1044,118 @@ span {
         padding: 12px 20px;
         text-align: center;
     }
-    html{
+
+    html {
         font-size: 55%;
     }
-    .projects-container{
+
+    .projects-container {
         grid-template-columns: repeat(2, 1fr);
     }
-    .home-img {
-        width: 32vw;
-        height: 32vw;
-    }
-    .about-img {
+
+    .home-img, .about-img {
         width: 35vw;
         height: 35vw;
     }
 }
 
-@media(max-width: 768px){
-    #menu-icon {
-        display: block;
-    }
-    .nav-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background: var(--second-bg-color);
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 10px 0;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease-in-out, visibility 0.3s;
-    }
-    .nav-menu.active {
-        display: flex;
-        opacity: 1;
-        visibility: visible;
-    }
+@media(max-width: 768px) {
     header {
         padding: 2rem 3%;
     }
-    section{
+
+    section {
         padding: 8rem 3% 5rem;
     }
-    .projects{
+
+    .projects {
         padding-bottom: 5rem;
     }
-    .footer{
+
+    .footer {
         padding: 2rem 3%;
     }
+
     .toggle-theme {
         margin-left: 2rem;
         width: 3.5rem;
         height: 3.5rem;
     }
+
     .about {
         gap: 5rem;
     }
+
     .skills-container {
         grid-template-columns: 1fr;
     }
+
     .skill-card {
         flex-direction: column;
         align-items: center;
     }
+
     .skill-icon {
         font-size: 3.5rem;
     }
+
     .progress-bar {
         height: 12px;
     }
+
+    .home {
+        flex-direction: column;
+        text-align: center;
+        padding: 10rem 3% 5rem;
+    }
+
+    .home-content h3 {
+        font-size: 2.6rem;
+    }
+
+    .home-content h1 {
+        font-size: 4.5rem;
+    }
+
+    .home-img {
+        width: 60vw;
+        height: 60vw;
+    }
+
+    .about {
+        flex-direction: column-reverse;
+        padding: 8rem 3% 5rem;
+        gap: 2rem;
+    }
+
+    .about-content {
+        margin-top: 4rem;
+    }
+
+    .about-content h2 {
+        font-size: 4rem;
+    }
+
+    .about-img {
+        width: 60vw;
+        height: 60vw;
+        margin-bottom: 2rem;
+    }
+
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact form .input-box input {
+        width: 100%;
+    }
+    
+    .heading {
+        font-size: 4.5rem;
+    }
 }
 
-@media(max-width: 650px){
-    #menu-icon {
-        display: block;
-    }
-    .nav-menu {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 75px;
-        left: 0;
-        width: 100%;
-        background: var(--second-bg-color);
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 10px 0;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease-in-out, visibility 0.3s;
-    }
-    .nav-menu.active {
-        opacity: 1;
-        visibility: visible;
-    }
+@media(max-width: 650px) {
     .navbar {
         display: none;
         position: absolute;
@@ -1160,7 +1186,6 @@ span {
         position: relative;
     }
 
-    /* Efek garis bawah berpindah tanpa JS */
     .navbar a::after {
         content: '';
         position: absolute;
@@ -1178,98 +1203,41 @@ span {
         width: 50%;
         left: 50%;
     }
-    .home{
-        flex-direction: column;
-        padding: 10rem 3% 5rem;
-    }
-    
-    .home-content h3{
-        font-size: 2.6rem;
-    }
-    
-    .home-content h1{
-        font-size: 4.5rem;
-    }
-    
-    .home-img {
+
+    .home-img, .about-img {
         width: 70vw;
         height: 70vw;
-        margin-top: 4rem;
     }
-    
-    .about{
-        flex-direction: column-reverse;
-        padding: 8rem 3% 5rem;
-        gap: 2rem;
+}
+
+@media(max-width: 480px) {
+    html {
+        font-size: 50%;
     }
-    
-    .about-content{
-        margin-top: 4rem;
+
+    .home-img, .about-img {
+        width: 75vw;
+        height: 75vw;
     }
-    
-    .about-content h2 {
-        font-size: 4rem;
-    }
-    
-    .about-img {
-        width: 70vw;
-        height: 70vw;
-        margin-bottom: 2rem;
-    }
-    
-    .projects h2{
-        margin-bottom: 3rem;
-    }
-    
-    .projects-container{
-        grid-template-columns: 1fr;
-    }
-    
-    .contact form .input-box input {
+
+    .nav-menu {
+        top: 70px;
         width: 100%;
-    }
-    
-    .heading {
-        font-size: 4.5rem;
+        left: 0;
+        transform: none;
     }
 }
 
 @media(max-width: 365px) {
-    #menu-icon {
-        display: block;
+    .home-img, .about-img {
+        width: 90vw;
+        height: 90vw;
     }
+
     .nav-menu {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 70px; /* Sesuaikan tinggi agar lebih pas */
-        left: 0;
-        width: 100%;
-        background: var(--second-bg-color);
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 8px 0;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease-in-out, visibility 0.3s;
+        top: 65px;
     }
-    .nav-menu.active {
-        opacity: 1;
-        visibility: visible;
-    }
-    html {
-        font-size: 50%;
-    }
-    
-    .home-img {
-        width: 90vw;
-        height: 90vw;
-    }
-    
-    .about-img {
-        width: 90vw;
-        height: 90vw;
-    }
-    
+
     .footer ul li {
         display: block;
         margin: 1.5rem 0;
