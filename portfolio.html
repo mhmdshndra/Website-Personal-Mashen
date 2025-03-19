@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Saya - Muhammad Suhendra</title>
+
+    <!-- Link Font & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Tombol Scroll ke Atas -->
+    <button class="scroll-top">
+        <i class="bx bx-up-arrow-alt"></i>
+    </button>
+
+    <!-- Notifikasi -->
+    <div class="toast" id="toast">Pesan berhasil dikirim!</div>
+
+    <!-- Header Navigasi -->
+    <header class="header">
+        <a href="index.html" class="logo">Muhammad<span>Suhendra</span></a>
+
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="about.html">Tentang Saya</a>
+            <a href="portfolio.html" class="active">Portfolio</a>
+            <a href="contact.html">Kontak</a>
+            <button class="toggle-theme" id="theme-toggle">
+                <i class="bx bx-moon"></i>
+            </button>
+        </nav>
+
+        <i class="bx bx-menu" id="menu-icon"></i>
+    </header>
+
+    <main>
+
+        <!-- Bagian Portfolio -->
+        <section class="portfolio" id="portfolio">
+            <h2 class="heading">Project <span>Saya</span></h2>
+
+            <div class="portfolio-container">
+                <div class="portfolio-box">
+                    <img src="image/project 1.jpg" alt="Web Development Project">
+                    <div class="portfolio-info">
+                        <h4>Website Development</h4>
+                        <p>
+                            Pengembangan website yang responsif dengan tampilan modern, mengutamakan user experience.
+                            Dibangun menggunakan HTML, CSS, JavaScript, serta framework front-end terkini.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="portfolio-box">
+                    <img src="image/project 2.jpg" alt="Mobile App Project">
+                    <div class="portfolio-info">
+                        <h4>Mobile Application</h4>
+                        <p>
+                            Aplikasi mobile dengan fitur inovatif dan UI/UX yang intuitif.
+                            Dibangun menggunakan Flutter untuk pengalaman cross-platform yang optimal.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="portfolio-box">
+                    <img src="image/project 3.jpg" alt="UI/UX Design Project">
+                    <div class="portfolio-info">
+                        <h4>UI/UX Design</h4>
+                        <p>
+                            Mendesain antarmuka yang menarik dan fungsional dengan pendekatan user-centered design.
+                            Termasuk wireframing, prototyping, dan desain visual modern.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Keahlian -->
+        <section class="skills">
+            <h2 class="heading">Keahlian <span>Saya</span></h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <i class="fas fa-image skill-icon"></i>
+                    <div class="skill-text">
+                        <h3>Editing Foto</h3>
+                        <div class="progress-bar">
+                            <div class="progress" style="--progress-width: 85%;"></div>
+                        </div>
+                        <span class="percentage">85%</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <i class="fas fa-video skill-icon"></i>
+                    <div class="skill-text">
+                        <h3>Editing Video</h3>
+                        <div class="progress-bar">
+                            <div class="progress" style="--progress-width: 90%;"></div>
+                        </div>
+                        <span class="percentage">90%</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <i class="fas fa-camera skill-icon"></i>
+                    <div class="skill-text">
+                        <h3>Videographer</h3>
+                        <div class="progress-bar">
+                            <div class="progress" style="--progress-width: 80%;"></div>
+                        </div>
+                        <span class="percentage">80%</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <i class="fas fa-camera-retro skill-icon"></i>
+                    <div class="skill-text">
+                        <h3>Fotografer</h3>
+                        <div class="progress-bar">
+                            <div class="progress" style="--progress-width: 75%;"></div>
+                        </div>
+                        <span class="percentage">75%</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <i class="fas fa-code skill-icon"></i>
+                    <div class="skill-text">
+                        <h3>Coding</h3>
+                        <div class="progress-bar">
+                            <div class="progress" style="--progress-width: 95%;"></div>
+                        </div>
+                        <span class="percentage">95%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="social">
+            <a href="https://linkedin.com/" target="_blank"><i class="bx bxl-linkedin"></i></a>
+            <a href="https://github.com/mhmdshndra" target="_blank"><i class="bx bxl-github"></i></a>
+            <a href="https://www.instagram.com/mhmdshndra" target="_blank"><i class="bx bxl-instagram-alt"></i></a>
+            <a href="https://twitter.com/" target="_blank"><i class="bx bxl-twitter"></i></a>
+        </div>
+
+        <ul class="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Tentang Saya</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Kontak Saya</a></li>
+        </ul>
+
+        <p class="copyright">
+            © Muhammad Suhendra | Mahasiswa Teknik Informatika
+        </p> 
+    </footer>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+
+</body>
+</html>
